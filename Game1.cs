@@ -13,7 +13,11 @@ namespace Monogame_5__Adding_An_Intro_Screen
     {
         MouseState mouseState;
         Screen screen;
-        Texture2D tribbleIntroTexture;
+        Texture2D tribbleIntroTexture, greyTribbleTexture, brownTribbleTexture, creamTribbleTexture;
+        Rectangle greyTribbleRec, brownTribbleRec, creamTribbleRec;
+
+
+        Vector2 greyTribbleSpeed, brownTribbleSpeed, creamTribbleSpeed;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -28,6 +32,15 @@ namespace Monogame_5__Adding_An_Intro_Screen
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            greyTribbleRec = new Rectangle(300, 10, 100, 100);
+            greyTribbleSpeed = new Vector2(2, 4);
+            brownTribbleRec = new Rectangle(300, 300, 100, 100);
+            brownTribbleSpeed = new Vector2(2, 4);
+            creamTribbleRec = new Rectangle(450, 400, 100, 100);
+            creamTribbleSpeed = new Vector2(2, 4);
+           
+         
+            _graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -38,6 +51,9 @@ namespace Monogame_5__Adding_An_Intro_Screen
 
             // TODO: use this.Content to load your game content here
             tribbleIntroTexture = Content.Load<Texture2D>("tribble_intro");
+            greyTribbleTexture = Content.Load<Texture2D>("tribbleGrey");
+            brownTribbleTexture = Content.Load<Texture2D>("tribbleBrown");
+            creamTribbleTexture = Content.Load<Texture2D>("tribbleCream");
         }
 
         protected override void Update(GameTime gameTime)
